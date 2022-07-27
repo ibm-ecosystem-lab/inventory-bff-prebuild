@@ -8,7 +8,6 @@ export class StockItemsMockService implements StockItemsApi {
       {
         id: "1",
         name: "Self-sealing stem bolt",
-        description: "Self-sealing stem bolt",
         stock: 10,
         unitPrice: 10.5,
         picture: "https://via.placeholder.com/32.png",
@@ -17,7 +16,6 @@ export class StockItemsMockService implements StockItemsApi {
       {
         id: "2",
         name: "Heisenberg compensator",
-        description: "Magical component that negates the effects of the Heisenberg Uncertainty Principle",
         stock: 20,
         unitPrice: 20.0,
         picture: "https://via.placeholder.com/32.png",
@@ -26,7 +24,6 @@ export class StockItemsMockService implements StockItemsApi {
       {
         id: "3",
         name: "Tooth sharpener",
-        description: "Industrial strength tooth sharpener",
         stock: 30,
         unitPrice: 5.25,
         picture: "https://via.placeholder.com/32.png",

@@ -6,8 +6,6 @@ export class StockItem implements StockItemModel {
     @Field()
     id: string;
     @Field()
-    description: string;
-    @Field()
     manufacturer: string;
     @Field()
     name: string;

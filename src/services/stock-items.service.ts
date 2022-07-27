@@ -9,6 +9,7 @@ import { LoggerApi } from '../logger';
 class StockItem {
     'id'?: string;
     'manufacturer'?: string;
+    'picture'?: string;
     'name'?: string;
     'price'?: number;
     'stock'?: number;
@@ -25,15 +26,18 @@ export class StockItemsService implements StockItemsApi {
     }
 
     async listStockItems(): Promise<StockItemModel[]> {
-        try {
-            const response: Response = await get(this.config.baseUrl + '/stock-items')
-                .set('Accept', 'application/json');
-
-            return this.mapStockItems(response.body);
-        } catch (err) {
-            this.logger.error('Error getting data from service', err);
-            throw err;
-        }
+        return new Promise((resolve, reject) => {
+            get(`${this.config.baseUrl}/stock-items`)
+                .set('Accept', 'application/json')
+                .then(res => {
+                    console.error('LOGTAMER', res.body);
+                    resolve(this.mapStockItems(res.body));
+                })
+                .catch(err => {
+                    console.error('LOGTAMER', err);
+                    reject(err);
+                });
+        });
     }
 
     mapStockItems(data: StockItem[]): StockItemModel[] {
@@ -44,10 +48,9 @@ export class StockItemsService implements StockItemsApi {
         return {
             id: item.id,
             name: item.name,
-            description: item.name,
             stock: item.stock,
             unitPrice: item.price,
-            picture: 'https://via.placeholder.com/32.png',
+            picture: item.picture ?? 'https://via.placeholder.com/32.png',
             manufacturer: item.manufacturer,
         };
     }

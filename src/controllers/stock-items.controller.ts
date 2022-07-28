@@ -1,9 +1,9 @@
-import {Inject} from 'typescript-ioc';
-import {GET, Path} from 'typescript-rest';
-import {HttpError} from 'typescript-rest/dist/server/model/errors';
+import { Inject } from 'typescript-ioc';
+import { GET, Path } from 'typescript-rest';
+import { HttpError } from 'typescript-rest/dist/server/model/errors';
 
-import {StockItemModel} from '../models';
-import {StockItemsService} from '../services';
+import { StockItemModel } from '../models';
+import { StockItemsService } from '../services';
 
 class BadGateway extends HttpError {
   constructor(message?: string) {

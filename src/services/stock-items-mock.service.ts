@@ -1,5 +1,5 @@
-import {StockItemsApi} from './stock-items.api';
-import {StockItemModel} from '../models';
+import { StockItemsApi } from './stock-items.api';
+import { StockItemModel } from '../models';
 
 
 export class StockItemsMockService implements StockItemsApi {
